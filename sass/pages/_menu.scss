@@ -1,0 +1,232 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/typography";
+
+#tab {
+  padding-top: 250px;
+  padding-bottom: 200px;
+  .tab-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    .breadcrumb {
+      position: absolute;
+      top: 160px;
+      a {
+        @include text(text2);
+        color: grey;
+        font-weight: 600;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    .ap-tab {
+      display: flex;
+      flex-direction: column;
+      padding: 50px 40px;
+      gap: 45px;
+      background: #bb2339;
+      border-radius: 20px;
+      height: 900px;
+      h3 {
+        @include heading(h4);
+        color: white;
+      }
+      .ap-tab-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 40px;
+        .ap-tab-item {
+          a {
+            padding: 12px 33px;
+            border-radius: 100px;
+            border: 1px solid white;
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover {
+              background-color: white;
+              color: $color24;
+            }
+          }
+          a {
+            @include text(text2);
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+    .ap-tab-card-block {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 40px;
+      grid-row-gap: 55px;
+      .ap-tab-card {
+        padding: 30px 30px 50px;
+        text-align: center;
+        background: #ffffff;
+        border: 1px solid rgba(36, 36, 36, 0.1);
+        border-radius: 14px;
+        transition: 0.3s;
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.05);
+          background: linear-gradient(rgb(83, 192, 77), $primary-color);
+          color: white;
+          border: 1px solid white;
+        }
+        &:hover {
+          h6 {
+            color: white;
+          }
+        }
+        h5 {
+          margin-top: 10px;
+          max-width: 340px;
+          @include label(label2);
+        }
+        h6 {
+          margin-top: 30px;
+          @include heading(h6);
+          color: $primary-color;
+          font-family: opensans400;
+        }
+      }
+    }
+  }
+}
+
+#insta {
+  padding: 130px 0;
+  background-color: #f4f4f4;
+  .insta-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    .insta-left {
+      width: 40%;
+      h5 {
+        @include label(label1);
+      }
+      svg {
+        margin: 10px 0;
+      }
+      h3 {
+        @include heading(h3);
+      }
+      p {
+        margin-top: 24px;
+        margin-bottom: 33px;
+        @include text(text2);
+        color: $colorAAA;
+        max-width: 450px;
+      }
+      a {
+        padding: 10px 32px;
+        border: 1px solid $primary-color;
+        border-radius: 100px;
+        font-weight: 700;
+        font-family: cera400;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.04em;
+        color: #242424;
+        transition: 0.3s;
+        &:hover {
+          background-color: $primary-color;
+          color: white;
+        }
+      }
+    }
+    .insta-right {
+      width: 60% !important;
+      .owl-nav {
+        display: none;
+      }
+      .owl-dots {
+        display: none;
+      }
+      .owl-stage {
+        margin: 0 auto;
+        display: flex;
+        gap: 100px;
+      }
+      .owl-stage-outer {
+        border-radius: 14px;
+        padding: 10px 0;
+        margin-right: -100px;
+        .insta-card {
+          border-radius: 14px;
+          position: relative;
+          text-align: center;
+          cursor: pointer;
+          img {
+            width: 280px;
+            transition: 0.5s;
+            filter: blur(5px);
+          }
+          &:hover {
+            img {
+              filter: blur(0px);
+            }
+            .insta-logo {
+              display: block;
+            }
+          }
+          .insta-logo {
+            display: none;
+            position: absolute;
+            top: 45%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .owl-stage-outer {
+    margin-right: 0 !important;
+  }
+  .tab-container {
+    flex-direction: column;
+    .ap-tab {
+      text-align: center;
+      height: auto !important;
+    }
+    .ap-tab-list {
+      flex-direction: row !important;
+      flex-wrap: wrap;
+      gap: 30px !important;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  #insta {
+    .insta-container {
+      flex-direction: column !important;
+      .insta-left {
+        text-align: center;
+        width: 100% !important;
+        p {
+          margin: 0 auto !important;
+          margin-bottom: 50px !important;
+        }
+      }
+      .insta-right {
+        width: 100% !important;
+        .owl-stage {
+          margin: 0px !important;
+        }
+        .owl-stage-outer {
+          border-radius: 0px !important;
+          width: 100% !important;
+        }
+      }
+    }
+  }
+}

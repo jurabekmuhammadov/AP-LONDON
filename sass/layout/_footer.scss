@@ -1,0 +1,201 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/typography";
+
+footer {
+  padding: 120px 0 40px !important;
+  background: linear-gradient(white 0% 32%, $primary-color 30% 70%);
+  .footer__subscribe {
+    background: $primary-color;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 22px 30px 95px 1px rgba(86, 86, 86, 0.2);
+    border-radius: 20px;
+    padding: 64px 0;
+    text-align: center;
+    h5 {
+      @include label(label1);
+      color: white;
+    }
+    h2 {
+      margin: 25px 0;
+      @include heading(h3);
+      color: white;
+    }
+    p {
+      @include text(text2);
+      color: white;
+    }
+    form {
+      margin-top: 65px;
+      input {
+        @include text(text2);
+        color: white;
+        width: 635px;
+        padding: 15px 20px;
+        border: 1px solid rgba(245, 239, 219, 0.5);
+        border-radius: 100px;
+        background: transparent;
+        outline: none;
+        &::placeholder {
+          @include text(text2);
+          color: $colorAAA;
+        }
+        &:focus {
+          box-shadow: 0 0 10px 3px #bbb;
+        }
+      }
+      button {
+        @include text(text2);
+        @include button(transparent, white, 10px, 32px);
+        margin-left: 32px;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+        border: 1px solid white;
+        &:hover {
+          background: white;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  .footer__bottom {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap:50px;
+    .footer__bottom-left {
+      text-align: center;
+      h4 {
+        @include label(label32);
+        font-weight: 400;
+        color: white;
+      }
+      p {
+        @include text(text2);
+        color: white;
+        margin: 24px 0 10px;
+      }
+      a {
+        display: block;
+        @include text(text2);
+        color: white;
+      }
+    }
+    .footer__bottom-middle {
+      @include dflex(column, center, center);
+      gap: 0;
+      p {
+        margin-top: 32px;
+        margin-bottom: 50px;
+        text-align: center;
+        max-width: 480px;
+        @include text(text2);
+        color: white;
+        letter-spacing: 1.2px;
+      }
+      .footer__media {
+        @include dflex(row, center, center);
+        gap: 25px;
+        a:hover svg path {
+          fill: #242424;
+        }
+        a:hover svg circle {
+          fill: #242424;
+        }
+      }
+    }
+    .footer__bottom-right {
+      text-align: center;
+      h4 {
+        @include label(label32);
+        font-weight: 400;
+        color: white;
+        margin-bottom: 18px;
+      }
+      p {
+        margin: 6px 0;
+        @include text(text2);
+        color: white;
+      }
+    }
+  }
+  .footer__end {
+    text-align: center;
+    margin-top: 90px;
+    p {
+      @include text(text2);
+      color: white;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+@media(max-width:1000px) {
+  footer {
+    background: linear-gradient(white 0% 25%, $primary-color 25% 70%);
+  }
+  .footer__bottom {
+    grid-gap:70px;
+    grid-column-gap:0px !important;
+    .footer__bottom-middle {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+    .footer__bottom-right {
+      grid-row-start:1 ;
+      grid-column-start: 3;
+      grid-column-end: 4;
+    }
+  }
+}
+
+@media (max-width: 885px) {
+  .footer__subscribe {
+    padding: 40px 20px !important;
+    form {
+      input {
+        width: 100% !important;
+      }
+      button {
+        margin-left: 0 !important;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@media(max-width:840px) {
+  footer {
+    .footer__bottom {
+      .footer__bottom-right,.footer__bottom-left {
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    .footer__subscribe {
+      h2 {
+        font-size: 30px;
+        line-height: 40px;
+        margin: 20px 0;
+      }
+      h5 {
+        @include label(label2);
+      }
+      form {
+        margin-top: 40px;
+        input {
+          padding: 10px 20px;
+        }
+        button {
+          padding: 10px 25px;
+        }
+      }
+    }
+  }
+}
+

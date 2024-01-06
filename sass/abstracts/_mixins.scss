@@ -1,0 +1,96 @@
+  @use "variables";
+@use "typography";
+
+@function calculateRem($size) {
+  @return calc($size / $rem-base) * 1rem;
+}
+
+@mixin heading($heading) {
+  $font-sizes: (
+    h1: 90px,
+    h2: 64px,
+    h3: 45px,
+    h4: 40px,
+    h5: 38px,
+    h6: 24px,
+  );
+
+  $line-heights: (
+    h1: 117px,
+    h2: 83.2px,
+    h3: 62.4px,
+    h4: 54px,
+    h5: 49.4px,
+    h6: 32px,
+  );
+  font-family: cera400;
+  font-size: calculateRem(map-get($font-sizes, $heading));
+  line-height: calculateRem(map-get($line-heights, $heading));
+  letter-spacing: 0.03em;
+  color: $dark;
+}
+
+@mixin label($label) {
+  $font-sizes: (
+    label32: 32px,
+    label1: 23px,
+    label2: 18px,
+  );
+
+  $line-heights: (
+    label32: 42px,
+    label1: 30px,
+    label2: 24.51px,
+  );
+
+  font-family: cera400;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: calculateRem(map-get($font-sizes, $label));
+  line-height: calculateRem(map-get($line-heights, $label));
+}
+
+@mixin text($text) {
+  $font-sizes: (
+    text1: 20px,
+    text2: 16px,
+    text3: 14px,
+  );
+
+  $line-heights: (
+    text1: 32px,
+    text2: 28px,
+    text3: 24px,
+  );
+  font-family: opensans400;
+  font-weight:400;
+  font-size: calculateRem(map-get($font-sizes, $text));
+  line-height: calculateRem(map-get($line-heights, $text));
+}
+
+@mixin button($background-color, $text-color, $padding-y, $padding-x) {
+  display: inline-block;
+  padding: $padding-y $padding-x;
+  border-radius: 100px;
+  background-color: $background-color;
+  color: $text-color;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  line-height: 28px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+@mixin dgrid ($num) {
+  display: grid;
+  grid-template-columns: repeat($num);
+}
+
+@mixin dflex ($fd,$jcsb,$aic) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jcsb;
+  align-items: $aic;
+  gap: 100px;
+}

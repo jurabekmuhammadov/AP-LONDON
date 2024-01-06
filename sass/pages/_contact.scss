@@ -1,0 +1,223 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/typography";
+
+#contact {
+  padding: 170px 0 120px;
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    .breadcrumb {
+      text-align: left;
+      a {
+        @include text(text2);
+        color: grey;
+        font-weight: 600;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    .contact-heading {
+      margin: 0 auto;
+      text-align: center;
+      h2 {
+        @include heading(h3);
+      }
+    }
+    .contact-data-block {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      margin-top: 40px;
+      grid-column-gap:50px ;
+      .block-left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .block-left-card {
+          border: 1px solid rgba(36, 36, 36, 0.1);
+          border-radius: 14px;
+          display: flex;
+          align-items: center;
+          gap: 25px;
+          padding: 30px 180px 30px 30px;
+          .logoo {
+            a {
+              padding: 20px;
+              background: rgba(36, 36, 36, 0.05);
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+          .content {
+            h5 {
+              font-family: "opensans400";
+              font-style: normal;
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 34px;
+              color: #242424;
+            }
+            a {
+              margin-top: 5px;
+              font-family: opensans400;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 19px;
+              color: #242424;
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+      .block-right {
+        width: 100%;
+        border: 1px solid rgba(36, 36, 36, 0.1);
+        border-radius: 14px;
+        padding: 40px;
+        h4 {
+          @include heading(h5);
+          font-family: opensans400;
+          color: $color24;
+        }
+        p {
+          margin-top: 16px;
+          @include text(text2);
+          color: $color24;
+          opacity: 0.7;
+        }
+        form {
+          margin-top: 40px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-column-gap: 20px;
+          grid-row-gap: 15px;
+          input {
+            padding: 15px 20px;
+            border: 1px solid rgba(51, 34, 68, 0.1);
+            border-radius: 12px;
+            outline: none;
+            font-family: "opensans400";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            color: #333333;
+            &::placeholder {
+              font-family: "opensans400";
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 22px;
+              display: flex;
+              align-items: center;
+              color: #333333;
+              opacity: 0.7;
+            }
+            &:focus {
+              box-shadow: 0 0 5px 3px rgb(103, 103, 103);
+            }
+          }
+          textarea {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            resize: none;
+            padding: 20px;
+            border: 1px solid rgba(51, 34, 68, 0.1);
+            border-radius: 12px;
+            outline: none;
+            font-family: "opensans400";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            color: #333333;
+            &::placeholder {
+              font-family: "opensans400";
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 22px;
+              display: flex;
+              align-items: center;
+              color: #333333;
+              opacity: 0.7;
+            }
+            &:focus {
+              box-shadow: 0 0 5px 3px rgb(103, 103, 103);
+            }
+          }
+          button {
+            margin-top:10px ;
+            background: #bb2339;
+            border-radius: 39px;
+            border: none;
+            padding: 15px 30px;
+            font-family: "opensans400";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+            text-align: center;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+  @media(max-width:1111px) {
+    .contact-container {
+      align-items: center !important;
+    }
+  .contact-data-block {
+    grid-template-columns: 1fr !important;
+    grid-row-gap:100px;
+    .block-left {
+      width: 100% !important;
+      .block-left-card {
+        padding: 20px !important;
+      }
+    }
+  }
+}
+@media(max-width:600px) {
+  .block-right {
+    width: 100% !important;
+  }
+  form {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+}
+
+#map {
+  .map-container {
+    text-align: center;
+    h4 {
+      @include heading(h5);
+    }
+    iframe {
+      margin-top: 40px;
+     border-radius: 14px;
+      width: 1150px;
+    }
+  }
+}
+
+@media(max-width:1300px) {
+  iframe {
+    width: 100% !important;
+  }
+}

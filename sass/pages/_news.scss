@@ -1,0 +1,110 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+@use "../abstracts/typography";
+ 
+#gericht {
+  padding: 170px 0 50px;
+
+  .gericht-container {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    .viewmore {
+      padding: 10px 32px;
+      margin-top: 90px;
+      border: 1px solid $primary-color;
+      border-radius: 100px;
+      font-weight: 700;
+      font-family: cera400;
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: 0.04em;
+      color: #242424;
+      transition: 0.3s;
+      &:hover {
+        background-color: $primary-color;
+        color: white;
+      }
+    }
+    .breadcrumb {
+      margin-left: -1170px;
+      a {
+        @include text(text2);
+        color: grey;
+        font-weight: 600;
+        &:hover {
+          color: $primary-color
+        }
+
+      }
+    }
+    .gericht-heading {
+      text-align: center;
+      img {
+        margin: 10px 0 5px;
+      }
+      h3 {
+        @include heading(h3);
+        color: $color24;
+      }
+    }
+    .gericht-card-block {
+      margin-top: 60px;
+      @include dflex(row, center, center);
+      flex-wrap: wrap;
+      gap: 35px;
+      .gericht-card {
+        img {
+          width: 400px;
+        }
+        border: 1px solid rgba(36, 36, 36, 0.1);
+        border-radius: 14px;
+        h6 {
+          margin-top: 20px;
+          @include heading(h6);
+          padding: 0 20px;
+        }
+        p {
+          @include text(text3);
+          margin-top: 10px;
+          color: $colorAAA;
+          padding: 0 20px;
+        }
+        .gericht-card-bottom {
+          margin: 18px 20px 30px 20px;
+          display: flex;
+          justify-content: space-between;
+          a {
+            font-weight: 700;
+            font-size: 16px;
+            font-family: opensans400;
+            line-height: 16px;
+            letter-spacing: 0.04em;
+            color: $primary-color;
+          }
+          span {
+            font-family: opensans400;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 19px;
+            color: #242424;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .gericht-card-block {
+    .gericht-card {
+      width: 100% !important;
+      border: none !important;
+      img {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
